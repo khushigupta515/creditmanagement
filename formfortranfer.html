@@ -1,0 +1,67 @@
+<?php
+  include_once 'help2.php';
+?>
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <title>Form for transfer</title>
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- navbar google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+   <!-- herotext class -->
+  <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+  <!-- body  -->
+  <link href="https://fonts.googleapis.com/css2?family=Martel:wght@200&family=Patua+One&display=swap" rel="stylesheet">
+  
+
+    <!-- External Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="stylespark.css">
+    <style type="text/css">
+      body
+      {margin: 0;
+       padding: 0;
+       }
+    </style>
+    
+   
+
+  </head>
+
+
+
+
+<body>
+<form action="help2.php" method="GET">
+  		 <div class="form-group">
+    <label for="transferfrom">Transfer from:</label>
+    <input type="text" class="form-control" name="transferfrom">
+  </div>
+  <div class="form-group">
+    <label for="transferto">Transfer to:</label>
+    <input type="text" class="form-control" name="transferto">
+  </div>
+  <div class="form-group">
+    <label for="credit">Amount to be transfered:</label>
+    <input type="number" class="form-control" name="credit">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  	</form>
+</body>
+</html>
