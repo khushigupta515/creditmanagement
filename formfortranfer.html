@@ -36,7 +36,25 @@
        padding: 0;
        }
     </style>
-    
+   
+  
+    <script type="text/javascript">
+    	function validateform()
+    	{var x=document.forms["myForm"]["transferfrom"].value;
+    	 var y=document.forms["myForm"]["transferto"].value;
+    	 var z=document.forms["myForm"]["credit"].value;
+    	 if(x == y)
+    	 	{alert("Transfer id of the beneficiary and recipient cannot be the same");
+    	    return false;
+    	    }
+    	if(z<0)
+    		{alert("Credit cannot be a negative value");
+    	    return false;
+    	    }
+        
+    }
+    </script>
+     
    
 
   </head>
@@ -45,23 +63,25 @@
 
 
 <body>
-<form action="help2.php" method="GET">
+<form action="help2.php" method="GET" name="myForm" onsubmit="return validateform()">
   		 <div class="form-group">
-    <label for="transferfrom">Transfer from:</label>
-    <input type="text" class="form-control" name="transferfrom">
+    <label for="transferfrom">Transfer from Id:</label>
+    <input type="number" class="form-control" name="transferfrom" required>
   </div>
+
   <div class="form-group">
-    <label for="transferto">Transfer to:</label>
-    <input type="text" class="form-control" name="transferto">
+    <label for="transferto">Transfer to Id</label>
+    <input type="number" class="form-control" name="transferto" required>
   </div>
   <div class="form-group">
     <label for="credit">Amount to be transfered:</label>
-    <input type="number" class="form-control" name="credit">
+    <input type="number" class="form-control" name="credit" required>
   </div>
   <div class="checkbox">
     <label><input type="checkbox"> Remember me</label>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default" >Submit</button>
+  <button class="btn btn-default"><a href='creditmanagement1.html' style="color:black;text-decoration: none;"> Home</a></button>
   	</form>
 </body>
 </html>
