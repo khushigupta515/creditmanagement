@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +10,7 @@
     <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <title>CREDIT MANAGEMENT SYSTEM</title>
+    <title>MY SQL TABLE</title>
   
 
     <!-- Optional JavaScript -->
@@ -29,40 +31,73 @@
       body
       {margin: 0;
        padding: 0;
+       background: #A8A8A8;
+       background-image: url("tablebg.jpg");
+       
        }
     </style>
+    <style type="text/css">
+    .exactCenter {
+      
+     margin : 0 auto 0 auto;
+     padding-top: 10%;
+ }
+  </style>
     
    
 
   </head>
+ 
+<body >
+  <div class="container-fluid">
+    <h1 class="text-center" style="background: white;padding: 0.5%;">Transaction History:</h1>
+  </div>
 
-
-<?php
+<div class="container exactCenter">
+ 
+<table class="table" >
+ <thead class="thead-dark">
+ <tr style="background: black;color: white;">
+ <th >Recipient's ID</th>
+ <th>Recepient's Name</th>
+ <th >Benficiary's ID</th>
+ <th>Benficiary's Name</th>
+ <th>Credit Transfered</th>
+ 
+ </tr>
+ </thead>
+ <tbody style="background: white;" >
+ <?php
 
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
 $dbName = "sparkassignment";
 $conn= mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+$sql = " SELECT * FROM transaction;";
+$result = mysqli_query($conn,$sql);
+	  	$resultCheck=mysqli_num_rows($result);
+	  	if($resultCheck > 0){
+	  		while($row=mysqli_fetch_assoc($result)){
+	  		    echo "<tr>";
+	  		    echo "<td>".$row['id']."</td>";
+            echo "<td>".$row['name']."</td>";
+          echo "<td>".$row['id2']."</td>";
+          echo "<td>".$row['name2']."</td>";
+	     		echo "<td>".$row['credit']."</td>";
+	     	echo "</tr>";
+	  		}
+	  	   }
 
-$username = $_GET['username'];
-$credit = $_GET['credit'];
+  	   
+ ?>
+ </tbody>
+</table>
+</div>
 
-$sql = "INSERT INTO posts (name, credit)
-VALUES ('$username', '$credit');";
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-?>
-<body>
- <div class="container-fluid" id="viewuser" style="padding-left: 0%;padding-right: 0%;" >
-  <div class="jumbotron text-center" style="margin-bottom: 0%;" >
-    <h2 class="text-center">Manage your Credits</h2>
-    <p>Click to view the list of users and their credits</p>
-    <button style="background: #56A49C;color: black;border-radius: 20%;padding: 1%;"><a href='printtable.php' style="color:black;text-decoration: none;">View Users</a></button>
-    <button style="background: #56A49C;color: black;border-radius: 20%;padding: 1%;margin-left: 1%; " ><a href='creditmanagement1.html' style="color:black;text-decoration: none;"> Home</a></button>
-  </div>
-  </body>
+
+
+  
+</body>
+</html>
